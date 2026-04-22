@@ -1,12 +1,6 @@
-# Numidiaware Software Suite
+# <a href="https://github.com/Numidiaware"><img src="https://avatars.githubusercontent.com/u/154687677?v=4" width="45" height="45" alt="Numidiaware Logo" style="border-radius: 50%; vertical-align: middle; margin-right: 10px;" /></a> Numidiaware Software Suite
 
-<div align="center">
-  <a href="https://github.com/Numidiaware">
-    <img src="https://avatars.githubusercontent.com/u/154687677?v=4" width="100" height="100" alt="Numidiaware Logo" style="border-radius: 50%;" />
-  </a>
-</div>
-
-> Innovative utility software designed to enhance Windows productivity and grant you deeper control over your PC.
+ Innovative utility software designed to enhance Windows productivity and grant you deeper control over your PC.
 
 ## Project Description
 
