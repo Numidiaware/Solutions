@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download as DownloadIcon, Monitor, Shield, FileText } from 'lucide-react';
+import { Download as DownloadIcon, Monitor, Shield, FileText, Smartphone } from 'lucide-react';
 
 const Download: React.FC = () => {
   return (
@@ -7,7 +7,7 @@ const Download: React.FC = () => {
       <div className="text-center mb-12">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Download PC Control Suite</h1>
         <p className="text-lg text-slate-600 dark:text-slate-400">
-          Get the latest version of PC Control Suite for Windows.
+          Get the latest version of PC Control Suite for Windows and Android.
         </p>
       </div>
 
@@ -19,12 +19,23 @@ const Download: React.FC = () => {
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Version 1.0.0</h2>
           <p className="text-slate-500 dark:text-slate-400 mb-8">Released: March 2024 • Size: 15.2 MB</p>
           
-          <button className="inline-flex items-center justify-center gap-3 bg-brand-600 hover:bg-brand-500 text-white font-semibold py-4 px-10 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-brand-500/30 text-lg w-full sm:w-auto">
-            <DownloadIcon size={24} />
-            Download Now
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button className="inline-flex items-center justify-center gap-3 bg-brand-600 hover:bg-brand-500 text-white font-semibold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-brand-500/30 text-lg w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-brand-500/50">
+              <Monitor size={24} />
+              Download for Windows
+            </button>
+            <a 
+              href="https://play.google.com/store/apps/details?id=com.numidiaware.pccontrolsuite" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-slate-800 hover:bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 text-white font-semibold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-slate-900/30 text-lg w-full sm:w-auto border border-slate-700 dark:border-slate-600 focus:outline-none focus:ring-4 focus:ring-slate-500/50"
+            >
+              <Smartphone size={24} />
+              Get it on Google Play
+            </a>
+          </div>
           
-          <div className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+          <div className="mt-8 flex items-center justify-center gap-2 text-sm text-slate-500 dark:text-slate-400">
             <Shield size={16} className="text-green-500" />
             <span>100% Free & Secure • No Adware • Digitally Signed</span>
           </div>
@@ -50,7 +61,7 @@ const Download: React.FC = () => {
             </li>
             <li className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
-              500 MB Free Disk Space
+              Android 8.0+ for Mobile App
             </li>
           </ul>
         </div>
