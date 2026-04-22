@@ -44,7 +44,8 @@ jobs:
       - name: Build project
         run: npm run build
         env:
-          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.EMAILJS_PUBLIC_KEY }}
+          # Map the GitHub Secret to the expected prefixed variable
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
