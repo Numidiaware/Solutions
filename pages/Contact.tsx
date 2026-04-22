@@ -115,8 +115,8 @@ const Contact: React.FC = () => {
   // IMPORTANT: Replace these placeholders with your actual IDs from https://dashboard.emailjs.com/
   const SERVICE_ID = 'service_numidiaware'; 
   const TEMPLATE_ID = 'template_contact';   
-  // const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'EMAILJS_PUBLIC_KEY'; 
-  const EMAILJS_PUBLIC_KEY = 'DtlV9Q6iZa_WcRC4D';    
+  // const EMAILJS_PUBLIC_KEY: string = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'EMAILJS_PUBLIC_KEY'; 
+  const EMAILJS_PUBLIC_KEY: string =  'DtlV9Q6iZa_WcRC4D';      
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
