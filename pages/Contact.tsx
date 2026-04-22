@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Mail, MapPin, Globe, Send, Loader2, CheckCircle2, AlertCircle, Copy, Check, ExternalLink, ChevronDown, Box, Code2, MessageCircle, LifeBuoy, ShieldCheck, Bug, Users } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import FolderCommentsIcon from '../components/FolderCommentsIcon';
 import PCControlSuiteIcon from '../components/PCControlSuiteIcon';
 
@@ -115,7 +114,7 @@ const Contact: React.FC = () => {
   // IMPORTANT: Replace these placeholders with your actual IDs from https://dashboard.emailjs.com/
   const SERVICE_ID = 'service_numidiaware'; 
   const TEMPLATE_ID = 'template_contact';   
-  const EMAILJS_PUBLIC_KEY: string = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'EMAILJS_PUBLIC_KEY';      
+  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'EMAILJS_PUBLIC_KEY';      
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -177,14 +176,22 @@ const Contact: React.FC = () => {
         email_subject: dynamicSubject,
       };
 
-      const result = await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
-      );
+      const payload = {
+        service_id: SERVICE_ID,
+        template_id: TEMPLATE_ID,
+        user_id: EMAILJS_PUBLIC_KEY,
+        template_params: templateParams
+      };
 
-      if (result.status === 200) {
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok || response.status === 200) {
         setStatus('success');
         setFormData({ 
           name: '', 
@@ -194,7 +201,8 @@ const Contact: React.FC = () => {
           message: '' 
         });
       } else {
-        throw new Error('Unexpected response from server');
+        const errorText = await response.text();
+        throw new Error(errorText || 'Unexpected response from server');
       }
     } catch (error: any) {
       console.error('EmailJS Error:', error);
