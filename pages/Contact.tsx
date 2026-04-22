@@ -115,7 +115,7 @@ const Contact: React.FC = () => {
   // IMPORTANT: Replace these placeholders with your actual IDs from https://dashboard.emailjs.com/
   const SERVICE_ID = 'service_numidiaware'; 
   const TEMPLATE_ID = 'template_contact';   
-  const EMAILJS_PUBLIC_KEY: string = 'EMAILJS_PUBLIC_KEY';      
+  const EMAILJS_PUBLIC_KEY: string = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'EMAILJS_PUBLIC_KEY';      
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -200,8 +200,8 @@ const Contact: React.FC = () => {
       console.error('EmailJS Error:', error);
       setStatus('error');
       
-      if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY' || EMAILJS_PUBLIC_KEY === 'EMAILJS_PUBLIC_KEY') {
-        setErrorMessage('Developer: Please set a valid EmailJS Public Key in Contact.tsx');
+      if (!EMAILJS_PUBLIC_KEY || EMAILJS_PUBLIC_KEY === 'EMAILJS_PUBLIC_KEY') {
+        setErrorMessage('Developer: Please set a valid EmailJS Public Key via environment variables.');
       } else {
         setErrorMessage(error?.text || 'Failed to send. Please ensure your EmailJS Template has a recipient address set.');
       }
