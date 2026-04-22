@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Mail, MapPin, Globe, Send, Loader2, CheckCircle2, AlertCircle, Copy, Check, ExternalLink, ChevronDown, Box, Code2, MessageCircle, LifeBuoy, ShieldCheck, Bug, Users } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import FolderCommentsIcon from '../components/FolderCommentsIcon';
+import PCControlSuiteIcon from '../components/PCControlSuiteIcon';
 
 // Types for Custom Select
 interface Option {
@@ -114,7 +115,7 @@ const Contact: React.FC = () => {
   // IMPORTANT: Replace these placeholders with your actual IDs from https://dashboard.emailjs.com/
   const SERVICE_ID = 'service_numidiaware'; 
   const TEMPLATE_ID = 'template_contact';   
-  const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';      
+  const PUBLIC_KEY = 'EMAILJS_PUBLIC_KEY';      
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -217,6 +218,7 @@ const Contact: React.FC = () => {
   // Data for Selects
   const productOptions: Option[] = [
     { value: 'Folder Comments', label: 'Folder Comments', icon: <FolderCommentsIcon size={18} /> },
+    { value: 'PC Control Suite', label: 'PC Control Suite', icon: <PCControlSuiteIcon size={18} /> },
     { value: 'General Software', label: 'General / Other Software', icon: <Box size={18} /> },
     { value: 'Custom Project', label: 'Custom Software Request', icon: <Code2 size={18} /> }
   ];
