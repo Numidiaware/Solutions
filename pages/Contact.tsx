@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Mail, MapPin, Globe, Send, Loader2, CheckCircle2, AlertCircle, Copy, Check, ExternalLink, ChevronDown, Box, Code2, MessageCircle, LifeBuoy, ShieldCheck, Bug, Users } from 'lucide-react';
+import { Mail, MapPin, Globe, Send, Loader2, CheckCircle2, AlertCircle, Copy, Check, ExternalLink, ChevronDown, Box, Code2, MessageCircle, LifeBuoy, ShieldCheck, Bug, Users, Lightbulb } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import FolderCommentsIcon from '../components/FolderCommentsIcon';
 import PCControlSuiteIcon from '../components/PCControlSuiteIcon';
@@ -139,6 +139,7 @@ const Contact: React.FC = () => {
       case 'Technical Support': return '🔧';
       case 'Licensing Help': return '🔐';
       case 'Bug Report': return '🐞';
+      case 'Feature Request': return '💡';
       default: return '📬';
     }
   };
@@ -227,6 +228,7 @@ const Contact: React.FC = () => {
   const subjectOptions: Option[] = [
     { value: 'General Inquiry', label: 'General Inquiry', icon: <MessageCircle size={18} /> },
     { value: 'Technical Support', label: 'Technical Support', icon: <LifeBuoy size={18} /> },
+    { value: 'Feature Request', label: 'Feature Request', icon: <Lightbulb size={18} /> },
     { value: 'Licensing Help', label: 'Licensing Help', icon: <ShieldCheck size={18} /> },
     { value: 'Bug Report', label: 'Bug Report', icon: <Bug size={18} /> }
   ];
